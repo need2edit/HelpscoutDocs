@@ -72,7 +72,8 @@ public class HelpscoutDocs {
                 }
                 
                 do {
-                    let data = try JSONSerialization.data(withJSONObject: json["article"], options: [])
+                    guard let articleJSON = json["article"] else { return completionHandler(nil) }
+                    let data = try JSONSerialization.data(withJSONObject: articleJSON, options: [])
                     let article = try decoder.decode(HSArticleRef.self, from: data)
                     completionHandler(article)
                 } catch {
