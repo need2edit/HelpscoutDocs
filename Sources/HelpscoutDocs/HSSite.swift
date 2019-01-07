@@ -21,7 +21,7 @@ public struct HSSite: Codable {
     public let favIconUrl: String?
     public let touchIconUrl: String?
     public let homeUrl: String
-    public let homeLinkText: String
+    public let homeLinkText: String?
     public let bgColor: String?
     public let description: String
     public let hasContactForm: Bool
