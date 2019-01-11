@@ -3,12 +3,10 @@ import Alamofire
 
 public class HelpscoutDocs {
     
-    private let session = Alamofire.SessionManager.default
-    private let adapter: HelpscoutHeadersAdapter
+    private let session: Alamofire.Session
     
     public init(apiKey: String) {
-        self.adapter = HelpscoutHeadersAdapter(apiKey: apiKey)
-        self.session.adapter = self.adapter
+        self.session = Alamofire.Session(adapter: HelpscoutHeadersAdapter(apiKey: apiKey))
     }
     
     private func makeRequest(route: Router, completionHandler: @escaping (DataResponse<Any>) -> Void) {
